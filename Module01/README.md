@@ -39,6 +39,18 @@
 
 ## Introduction to Container & Docker
 
+Container:
+* Standard unit of software that packages up code and all its dependencies.
+* Runs quickly and reliably from one computing environment to another.
+* Lightweight, standalone, executable package of software that includes everything needed to run an application
+* Code, runtime, system tools, system libraries and settings.
+
+Docker:
+* Set of platform as a service products that use OS-level virtualization to deliver software in packages called containers.
+* Program writtern in Go.
+* Containerd is the underlying technology that is a part of docker engine.
+
+
 ## Understanding the Docker components
 
 ## Docker Installation & Architecture
