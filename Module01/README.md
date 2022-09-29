@@ -52,8 +52,23 @@ Docker:
 
 
 ## Understanding the Docker components
+Client Side
+* Docker CLI
+* Remote API
+
+Host Side
+* Docker Daemon
+* Images
+* Containers
+
+Docker Registry
 
 ## Docker Installation & Architecture
+
+Ubuntu 
+``` sudo apt update
+    sudo apt install docker.io docker-compose
+```
 
 
 [ * * Go to Top * * ](https://github.com/chaulags/learnDocker/tree/main/Module01#module-01-docker-install--configure)
