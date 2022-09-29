@@ -15,7 +15,6 @@ Have fun, do suggest any changes you want. :whale:
 | [Module 04](https://github.com/chaulags/learnDocker/tree/main/Module04) | Text        |
 | [Module 05](https://github.com/chaulags/learnDocker/tree/main/Module05) | Title       |
 | [Module 06](https://github.com/chaulags/learnDocker/tree/main/Module06) | Text        |
-| [Module 07](https://github.com/chaulags/learnDocker/tree/main/Module07) | Text        |
 
 ## Documentation
 
