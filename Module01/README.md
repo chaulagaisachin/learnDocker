@@ -8,7 +8,8 @@
 ## Monolithic and Microservice
 
 Monolithic Architecture: 
-* Traditional model of software/application program which is self contained and independent from any other application.
+* Traditional model of software/application program which is self contained
+* Independent from any other application.
 * Singluar code base
 * Update requires to change in the entire stack
 * Time Consuming
