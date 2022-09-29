@@ -1,2 +1,7 @@
-# Module 02
- Learning Resources for Docker
+# Module 02: ** Image Creation , Management & Registry ** 
+* Working with Containers
+* Process in Containers
+* Docker Lifecycles
+* Docker Images & Layers
+* Docker Registry
+* Docker Commit
