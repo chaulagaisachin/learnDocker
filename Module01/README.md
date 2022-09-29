@@ -29,7 +29,7 @@
 | ----------- | ----------- |
 | Partitioning a physical server into multiple virtual servers.      | Bundling the application code along with the libraries, configuration files, and dependencies required for the application to run cross-platform.  |
 | Hypervisor Layer performs all the task.   | Docker Daemon/Container Engine Layer performs all the task        |
-| Hypervisor creates an abstract layer on the computer hardware, handles resource allocation, and monitors the virtual machines.   | Text        |
+| Hypervisor creates an abstract layer on the computer hardware, handles resource allocation, and monitors the virtual machines.   | Piece of software that accepts user requests, including command line options, pulls images, and from the end user's perspective runs the container.        |
 | Deploys an actual virtual server on top of hardware resouces.   | Creates an environment for an application to run.      |
 <!-- | Paragraph   | Text        | -->
 
