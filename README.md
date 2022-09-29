@@ -9,12 +9,12 @@ Have fun, do suggest any changes you want. :whale:
 
 | Modules     | Description |
 | ----------- | ----------- |
-| [Module 01](https://github.com/chaulags/learnDocker/tree/main/Module01) | Title       |
-| [Module 02](https://github.com/chaulags/learnDocker/tree/main/Module02) | Text        |
-| [Module 03](https://github.com/chaulags/learnDocker/tree/main/Module03) | Title       |
-| [Module 04](https://github.com/chaulags/learnDocker/tree/main/Module04) | Text        |
-| [Module 05](https://github.com/chaulags/learnDocker/tree/main/Module05) | Title       |
-| [Module 06](https://github.com/chaulags/learnDocker/tree/main/Module06) | Text        |
+| [Module 01](https://github.com/chaulags/learnDocker/tree/main/Module01) | Docker Install & Configure       |
+| [Module 02](https://github.com/chaulags/learnDocker/tree/main/Module02) | Image Creation , Management & Registry       |
+| [Module 03](https://github.com/chaulags/learnDocker/tree/main/Module03) | Docker Storage and Volumes       |
+| [Module 04](https://github.com/chaulags/learnDocker/tree/main/Module04) | Docker Networking        |
+| [Module 05](https://github.com/chaulags/learnDocker/tree/main/Module05) | Docker Image Creation & Compose       |
+| [Module 06](https://github.com/chaulags/learnDocker/tree/main/Module06) | Docker Orchestration        |
 
 ## Documentation
 
