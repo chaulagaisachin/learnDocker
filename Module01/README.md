@@ -51,7 +51,7 @@ Docker:
 * Containerd is the underlying technology that is a part of docker engine.
 
 
-## Understanding the Docker components
+## Understanding the Docker components & Architecture
 Client Side
 * Docker CLI
 * Remote API
@@ -63,10 +63,11 @@ Host Side
 
 Docker Registry
 
-## Docker Installation & Architecture
+## Docker Installation
 
-Ubuntu 
-``` sudo apt update
+Ubuntu/Debian Linux
+```
+    sudo apt update
     sudo apt install docker.io docker-compose
 ```
 
