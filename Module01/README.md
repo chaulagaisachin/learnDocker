@@ -25,5 +25,14 @@
 
 ## Virtualization v/s Containerization 
 
+| Virtualization      | Containerization |
+| ----------- | ----------- |
+| Partitioning a physical server into multiple virtual servers.      | Bundling the application code along with the libraries, configuration files, and dependencies required for the application to run cross-platform.  |
+| Hypervisor Layer performs all the task.   | Docker Daemon/Container Engine Layer performs all the task        |
+| Hypervisor creates an abstract layer on the computer hardware, handles resource allocation, and monitors the virtual machines.   | Text        |
+| Deploys an actual virtual server on top of hardware resouces.   | Creates an environment for an application to run.      |
+<!-- | Paragraph   | Text        | -->
+
+
 ![Virtualization versus Containerization](https://images.contentstack.io/v3/assets/blt300387d93dabf50e/bltb6200bc085503718/5e1f209a63d1b6503160c6d5/containers-vs-virtual-machines.jpg)
 
