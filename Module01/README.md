@@ -20,5 +20,5 @@
 
 
 ![Differences between Monolithic and Microservice](https://miro.medium.com/max/1000/1*b5vneT_J4-dKejbYH4o5qg.png)
-
+![Monolithic and Microservice](https://wac-cdn.atlassian.com/dam/jcr:b2be0d53-f4b2-46d8-9a34-993048cc6225/Monolith%20Vs%20Microservice%20image.png?cdnVersion=549)
 ## Containerization v/s Virtualization
