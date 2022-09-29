@@ -1,4 +1,4 @@
-# Module 02: ** Image Creation , Management & Registry ** 
+# Module 02: Image Creation , Management & Registry
 * Working with Containers
 * Process in Containers
 * Docker Lifecycles
