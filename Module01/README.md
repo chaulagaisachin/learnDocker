@@ -10,7 +10,7 @@
 
 
 | Monolithic Architecture      | Microservice Architecture |
-| ----------- | ----------- |
+| :-----------: | :-----------: |
 | Traditional model of software/application program which is self contained.      | Modern way of software development that depends on modular component. |
 | Independent from any other application.   | Dependent & modular but single module failure will not effect the whole application        |
 | Singluar code base.   | Different plugins could have different code base        |
@@ -43,4 +43,4 @@
 ## Docker Installation & Architecture
 
 
-[** Go to top ** ](https://github.com/chaulags/learnDocker/tree/main/Module01#module-01-docker-install--configure)
+<center> [** Go to top ** ](https://github.com/chaulags/learnDocker/tree/main/Module01#module-01-docker-install--configure) </center>
