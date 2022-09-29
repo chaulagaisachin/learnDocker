@@ -43,4 +43,4 @@
 ## Docker Installation & Architecture
 
 
-<center> [** Go to top ** ](https://github.com/chaulags/learnDocker/tree/main/Module01#module-01-docker-install--configure) </center>
+[ * * Go to Top * * ](https://github.com/chaulags/learnDocker/tree/main/Module01#module-01-docker-install--configure)
