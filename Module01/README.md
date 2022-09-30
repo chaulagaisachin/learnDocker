@@ -53,21 +53,24 @@ Docker:
 
 ## Understanding the Docker components & Architecture
 Client Side
-* Docker CLI
-* Remote API
+* Docker CLI: Command line interface that is allowed to issue command to docker daemon for various task.
+* Remote API: RESTFul API accessed  by an HTTP client  such as 
 
 Host Side
-* Docker Daemon
-* Images
-* Containers
+* Docker Daemon: Also known as dockerd, listens for Docker API requests/CLI commands and manages Docker objects such as images, containers, networks, and volumes.
+* Images: Template file that is the foundation of a docker container.
+* Containers: Running version of a docker images.
 
-Docker Registry
+Docker Registry: Storage and distribution system for named Docker images. 
+* Docker Hub
+* AWS Container Registry
+* Azure Container Registry
 
 ## Docker Installation
 
 Ubuntu/Debian Linux
 ```
-    sudo apt update
+    sudo apt update && sudo apt upgrade
     sudo apt install docker.io docker-compose
 ```
 
