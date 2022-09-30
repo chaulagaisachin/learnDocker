@@ -3,7 +3,7 @@
  * [Virtualization v/s Containerization](https://github.com/chaulags/learnDocker/tree/main/Module01#virtualization-vs-containerization) 
  * [Introduction to Container & Docker](https://github.com/chaulags/learnDocker/tree/main/Module01#introduction-to-container--docker)
  * [Understanding the Docker components](https://github.com/chaulags/learnDocker/tree/main/Module01#understanding-the-docker-components--architecture)
- * [Docker Installation & Architecture](https://github.com/chaulags/learnDocker/tree/main/Module01#docker-installation)
+ * [Docker Installation](https://github.com/chaulags/learnDocker/tree/main/Module01#docker-installation)
 
 
 ## Monolithic and Microservice Architecture
