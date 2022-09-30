@@ -66,6 +66,8 @@ Docker Registry: Storage and distribution system for named Docker images.
 * AWS Container Registry
 * Azure Container Registry
 
+[Docker Architecture](https://docs.docker.com/engine/images/architecture.svg)
+
 ## Docker Installation
 
 Ubuntu/Debian Linux
