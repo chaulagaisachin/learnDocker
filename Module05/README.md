@@ -4,3 +4,14 @@
 * Multi-Stage Dockerfile
 * Docker Compose
 * Understanding docker - compose file
+
+
+## Describe Dockerfile options
+
+## Write Dockerfile to create Image
+
+## Multi-Stage Dockerfile
+
+## Docker Compose
+
+## Understanding docker - compose file
