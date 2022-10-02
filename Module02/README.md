@@ -14,10 +14,22 @@
 ```
     https://hub.docker.com/
 ```
-<!-- ![DockerHub Image](https://static.packt-cdn.com/products/9781789137231/graphics/assets/01327d92-d3d2-4354-98bb-2a443adad38d.png) -->
-<img src="(https://static.packt-cdn.com/products/9781789137231/graphics/assets/01327d92-d3d2-4354-98bb-2a443adad38d.png)" width="200">
+![DockerHub Image](https://static.packt-cdn.com/products/9781789137231/graphics/assets/01327d92-d3d2-4354-98bb-2a443adad38d.png)
 
 ## Docker Images & Layers
+* Search "Ubuntu" in docker hub to find the base template of the ubuntu OS.
+* You can see offical docker image for Ubuntu.
+* ![DockerHub](img/ubuntu-search.jpg)
+* Use following commands to download/pull the image to your own local system.
+```
+    docker pull ubuntu
+```
+* If you are having any error such as permission denied or similar, use:
+
+```
+    sudo docker pull ubuntu
+```
+
 
 ## Working with Containers
 Let's start with something simple.
