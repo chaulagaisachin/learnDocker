@@ -39,14 +39,20 @@ sudo docker pull ubuntu
 ```
 docker images
 ```
+\
+![Docker Images](img/docker-images.jpg)
+\
 * To run the image, use:
 ```
-docker run -i -t ubuntu/ubuntu:latest
+docker run -i -t ubuntu:latest
 ```
 * The above command's options are described as follows:
   * -i = Interactive session with the container that is to be executed.
   * -t = To make sure the session is interactive, a terminal is required. Hence.
-  * ubuntu/ubuntu:latest = publisherName/imageName:versionNumber 
+  * ubuntu/ubuntu:latest = imageName:versionNumber 
+\
+![docker-run](img/docker-run.jpg)
+\
 * You can now interact with the running docker container through a terminal.
 
 
@@ -60,12 +66,23 @@ docker run -i -t ubuntu/ubuntu:latest
 docker ps -a
 ```
   * -a = Show all containers (default shows just running)
+\
+![docker-ps-a](img/docker-ps-a.jpg)
+\
 * Remember the information you have here. You'll be coming here a lot.
 * You have a terminal access to the docker container running a Ubuntu.
 * Use it for a while, see if you can find any difference.
 \
 ![Waiting Meme](https://c.tenor.com/ycKJas-YT0UAAAAM/im-waiting-aki-and-paw-paw.gif)
 \
+* There are various information about the container:
+  * Container ID = Randomly generated ID to specify the running instance. 
+  * Image = The image used to create the container.
+  * Command = The command executed while running the container(for ubuntu "bash" was executed)
+  * Created = Time it has been created for.
+  * Status = Running, exited.
+  * Port = Any exposed ports
+  * Name = Randomly generated name, these names can be used instead of container ID to execute stuffs. --name option can be used to give your own name for the container. 
 * Now Exit the terminal.
 * Use the command that displays the [information about container and its state](https://github.com/chaulags/learnDocker/tree/main/Module02#working-with-containers).
 * What are the changes you can see ?
