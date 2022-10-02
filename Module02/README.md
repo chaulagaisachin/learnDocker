@@ -16,7 +16,6 @@ https://hub.docker.com/
 ```
 \
 ![DockerHub Image](https://static.packt-cdn.com/products/9781789137231/graphics/assets/01327d92-d3d2-4354-98bb-2a443adad38d.png)
-\
 
 
 ## Docker Images & Layers
@@ -33,7 +32,7 @@ sudo docker pull ubuntu
 ```
 \
 ![Downloading](https://media3.giphy.com/media/3o7WTAkv7Ze17SWMOQ/giphy.gif?cid=790b76115d7878163a2bd03d2a72099f218f17e42b0be33e&rid=giphy.gif&ct=g)
-\
+
 * Wait for some seconds or minutes, depending upon your internet speed.
 * After the pull operation has been completed, use following commands to view your docker images in you local system.
 ```
@@ -41,7 +40,7 @@ docker images
 ```
 \
 ![Docker Images](img/docker-images.jpg)
-\
+
 * To run the image, use:
 ```
 docker run -i -t ubuntu:latest
@@ -52,7 +51,7 @@ docker run -i -t ubuntu:latest
   * ubuntu/ubuntu:latest = imageName:versionNumber 
 \
 ![docker-run](img/docker-run.jpg)
-\
+
 * You can now interact with the running docker container through a terminal.
 
 
@@ -60,6 +59,7 @@ docker run -i -t ubuntu:latest
 * As you already have opened an interactive session by running a docker cotainer.
 * Wait a second before doing anything. Let's understand whats happenning here.
 * Docker Image is just a template for a container. Container is a executed version of the template environment itself.
+\
 ![Docker Image & Container](https://davetang.github.io/reproducible_bioinformatics/assets/docker_image.png)
 * We can also view the information about container and its state, the following commands can be used.
 ```
@@ -68,13 +68,13 @@ docker ps -a
   * -a = Show all containers (default shows just running)
 \
 ![docker-ps-a](img/docker-ps-a.jpg)
-\
+
 * Remember the information you have here. You'll be coming here a lot.
 * You have a terminal access to the docker container running a Ubuntu.
 * Use it for a while, see if you can find any difference.
 \
 ![Waiting Meme](https://c.tenor.com/ycKJas-YT0UAAAAM/im-waiting-aki-and-paw-paw.gif)
-\
+
 * There are various information about the container:
   * Container ID = Randomly generated ID to specify the running instance. 
   * Image = The image used to create the container.
@@ -88,7 +88,7 @@ docker ps -a
 * What are the changes you can see ?
 \
 ![Use your power meme](https://c.tenor.com/lTPOYFTdUKgAAAAC/you-ready-to-use-your-power-for-good-chris-cantada.gif)
-\
+
 * Note down the changes you see.
 
 
