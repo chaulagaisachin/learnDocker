@@ -41,7 +41,7 @@
   * -i = Interactive session with the container that is to be executed.
   * -t = To make sure the session is interactive, a terminal is required. Hence.
   * ubuntu/ubuntu:latest = publisherName/imageName:versionNumber 
-* You can now interact with the running docker container through a terminal
+* You can now interact with the running docker container through a terminal.
 
 ## Working with Containers
 * As you already have opened an interactive session by running a docker cotainer.
@@ -53,12 +53,17 @@
     docker ps -a
 ```
   * -a = Show all containers (default shows just running)
+* Remember the information you have here. You'll be coming here a lot.
 * You have a terminal access to the docker container running a Ubuntu.
 * Use it for a while, see if you can find any difference.
 \
 ![Waiting Meme](https://c.tenor.com/ycKJas-YT0UAAAAM/im-waiting-aki-and-paw-paw.gif)
 \
-* 
+* Now Exit the terminal.
+* Use the command that displays the [information about container and its state](https://github.com/chaulags/learnDocker/tree/main/Module02#working-with-containers).
+* What are the changes you can see ?
+![Use your power meme](https://c.tenor.com/lTPOYFTdUKgAAAAC/you-ready-to-use-your-power-for-good-chris-cantada.gif)
+* Note down the changes you see.
 
 ## Process in Containers
 
