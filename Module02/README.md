@@ -38,12 +38,19 @@
     docker run -i -t ubuntu/ubuntu:latest
 ```
 * The above command's options are described as follows:
-  * i = Interactive session with the container that is to be executed.
-  * t = To make sure the session is interactive, a terminal is required. Hence.
+  * -i = Interactive session with the container that is to be executed.
+  * -t = To make sure the session is interactive, a terminal is required. Hence.
   * ubuntu/ubuntu:latest = publisherName/imageName:versionNumber 
 
 ## Working with Containers
-Let's start with something simple.
+* As you already have opened an interactive session by running a docker cotainer.
+* Wait a second before doing anything. Let's understand whats happenning here.
+* Docker Image is just a template for a container. Container is a executed version of the template environment itself.
+* We can also view the information about container and its state, the following commands can be used.
+```
+    docker ps -a
+```
+* -a = Show all containers (default shows just running)
 
 ## Process in Containers
 
