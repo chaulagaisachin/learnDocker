@@ -28,6 +28,7 @@ docker pull ubuntu
 ```
 sudo docker pull ubuntu
 ```
+![Downloading](https://media3.giphy.com/media/3o7WTAkv7Ze17SWMOQ/giphy.gif?cid=790b76115d7878163a2bd03d2a72099f218f17e42b0be33e&rid=giphy.gif&ct=g)
 * Wait for some seconds or minutes, depending upon your internet speed.
 * After the pull operation has been completed, use following commands to view your docker images in you local system.
 ```
@@ -42,6 +43,7 @@ docker run -i -t ubuntu/ubuntu:latest
   * -t = To make sure the session is interactive, a terminal is required. Hence.
   * ubuntu/ubuntu:latest = publisherName/imageName:versionNumber 
 * You can now interact with the running docker container through a terminal.
+
 
 ## Working with Containers
 * As you already have opened an interactive session by running a docker cotainer.
@@ -67,10 +69,16 @@ docker ps -a
 \
 * Note down the changes you see.
 
+
+
 ## Process in Containers
+
+
 
 ## Docker Lifecycles
 
 
+
 ## Docker Commit
+
 
