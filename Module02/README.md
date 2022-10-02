@@ -62,7 +62,9 @@ docker ps -a
 * Now Exit the terminal.
 * Use the command that displays the [information about container and its state](https://github.com/chaulags/learnDocker/tree/main/Module02#working-with-containers).
 * What are the changes you can see ?
+\
 ![Use your power meme](https://c.tenor.com/lTPOYFTdUKgAAAAC/you-ready-to-use-your-power-for-good-chris-cantada.gif)
+\
 * Note down the changes you see.
 
 ## Process in Containers
