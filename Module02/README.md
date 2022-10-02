@@ -1,10 +1,10 @@
 # Module 02: Image Creation , Management & Registry
-* [Docker Registry]()
-* [Docker Images & Layers]()
-* [Working with Containers]()
-* [Process in Containers]()
-* [Docker Lifecycles]()
-* [Docker Commit]()
+* [Docker Registry](https://github.com/chaulags/learnDocker/tree/main/Module02#docker-registry)
+* [Docker Images & Layers](https://github.com/chaulags/learnDocker/tree/main/Module02#docker-images--layers)
+* [Working with Containers](https://github.com/chaulags/learnDocker/tree/main/Module02#working-with-containers)
+* [Process in Containers](https://github.com/chaulags/learnDocker/tree/main/Module02#process-in-containers)
+* [Docker Lifecycles](https://github.com/chaulags/learnDocker/tree/main/Module02#docker-lifecycles)
+* [Docker Commit](https://github.com/chaulags/learnDocker/tree/main/Module02#docker-commit)
 
 ## Docker Registry
 * Let's start with simple docker image.
@@ -19,15 +19,19 @@
 ## Docker Images & Layers
 * Search "Ubuntu" in docker hub to find the base template of the ubuntu OS.
 * You can see offical docker image for Ubuntu.
-* ![DockerHub](img/ubuntu-search.jpg)
+![DockerHub](img/ubuntu-search.jpg)
 * Use following commands to download/pull the image to your own local system.
 ```
     docker pull ubuntu
 ```
 * If you are having any error such as permission denied or similar, use:
-
 ```
     sudo docker pull ubuntu
+```
+* Wait for some seconds or minutes, depending upon your internet speed.
+* After the pull operation has been completed, use following commands to view your docker images in you local system.
+```
+    docker images
 ```
 
 
