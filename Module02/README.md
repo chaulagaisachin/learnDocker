@@ -90,6 +90,8 @@ docker ps -a
 ![Use your power meme](https://c.tenor.com/lTPOYFTdUKgAAAAC/you-ready-to-use-your-power-for-good-chris-cantada.gif)
 
 * Note down the changes you see.
+\
+![docker-stop](img/docker-ps-aa.jpg)
 
 
 
