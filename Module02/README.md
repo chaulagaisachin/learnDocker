@@ -33,7 +33,14 @@
 ```
     docker images
 ```
-
+* To run the image, use:
+```
+    docker run -i -t ubuntu/ubuntu:latest
+```
+* The above command's options are described as follows:
+  * i = Interactive session with the container that is to be executed.
+  * t = To make sure the session is interactive, a terminal is required. Hence.
+  * ubuntu/ubuntu:latest = publisherName/imageName:versionNumber 
 
 ## Working with Containers
 Let's start with something simple.
