@@ -14,7 +14,10 @@
 ```
 https://hub.docker.com/
 ```
+\
 ![DockerHub Image](https://static.packt-cdn.com/products/9781789137231/graphics/assets/01327d92-d3d2-4354-98bb-2a443adad38d.png)
+\
+
 
 ## Docker Images & Layers
 * Search "Ubuntu" in docker hub to find the base template of the ubuntu OS.
@@ -28,7 +31,9 @@ docker pull ubuntu
 ```
 sudo docker pull ubuntu
 ```
+\
 ![Downloading](https://media3.giphy.com/media/3o7WTAkv7Ze17SWMOQ/giphy.gif?cid=790b76115d7878163a2bd03d2a72099f218f17e42b0be33e&rid=giphy.gif&ct=g)
+\
 * Wait for some seconds or minutes, depending upon your internet speed.
 * After the pull operation has been completed, use following commands to view your docker images in you local system.
 ```

@@ -76,7 +76,9 @@ sudo apt update && sudo apt upgrade
 sudo apt install docker.io docker-compose
 ```
 Wait for the Stuff to get loaded
+\
 ![Loading](https://media3.giphy.com/media/1iNIkQBAwEkUuTpikf/giphy.gif?cid=ecf05e471xtdgy62d1gagagkvlqddvnyqpnadv7mirrymn55&rid=giphy.gif&ct=g)
+\
 
 
 [ * * Go to Top * * ](https://github.com/chaulags/learnDocker/tree/main/Module01#module-01-docker-install--configure)
