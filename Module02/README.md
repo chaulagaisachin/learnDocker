@@ -7,9 +7,8 @@
 * [Docker Commit]()
 
 ## Docker Registry
-Let's start with simple docker image.
-/
-Docker Hub will be used to fetch the docker images from the docker registry./
+Let's start with simple docker image.\
+Docker Hub will be used to fetch the docker images from the docker registry.\
 Go and create and account in [Docker Hub](https://hub.docker.com/) so that it will help you help you in later chapters.
 
 ```
