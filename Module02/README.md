@@ -41,6 +41,7 @@
   * -i = Interactive session with the container that is to be executed.
   * -t = To make sure the session is interactive, a terminal is required. Hence.
   * ubuntu/ubuntu:latest = publisherName/imageName:versionNumber 
+* You can now interact with the running docker container through a terminal
 
 ## Working with Containers
 * As you already have opened an interactive session by running a docker cotainer.
@@ -54,8 +55,10 @@
   * -a = Show all containers (default shows just running)
 * You have a terminal access to the docker container running a Ubuntu.
 * Use it for a while, see if you can find any difference.
-* 
+\
 ![Waiting Meme](https://c.tenor.com/ycKJas-YT0UAAAAM/im-waiting-aki-and-paw-paw.gif)
+\
+* 
 
 ## Process in Containers
 
