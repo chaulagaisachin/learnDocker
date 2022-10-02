@@ -51,7 +51,10 @@
 ```
     docker ps -a
 ```
-* -a = Show all containers (default shows just running)
+  * -a = Show all containers (default shows just running)
+* You have a terminal access to the docker container running a Ubuntu.
+* Use it for a while, see if you can find any difference.
+![Waiting Meme](https://i.pinimg.com/originals/42/3c/37/423c375c2e12c1a708ecc1694e472ff1.gif)
 
 ## Process in Containers
 
