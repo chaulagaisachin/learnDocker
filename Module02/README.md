@@ -14,7 +14,7 @@
 ```
     https://hub.docker.com/
 ```
-
+![DockerHub Image](https://static.packt-cdn.com/products/9781789137231/graphics/assets/01327d92-d3d2-4354-98bb-2a443adad38d.png)
 ## Docker Images & Layers
 
 ## Working with Containers
