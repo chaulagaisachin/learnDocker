@@ -12,7 +12,7 @@
 * Go and create and account in [Docker Hub](https://hub.docker.com/) so that it will help you help you in later chapters.
 
 ```
-    https://hub.docker.com/
+https://hub.docker.com/
 ```
 ![DockerHub Image](https://static.packt-cdn.com/products/9781789137231/graphics/assets/01327d92-d3d2-4354-98bb-2a443adad38d.png)
 
@@ -22,20 +22,20 @@
 ![DockerHub](img/ubuntu-search.jpg)
 * Use following commands to download/pull the image to your own local system.
 ```
-    docker pull ubuntu
+docker pull ubuntu
 ```
 * If you are having any error such as permission denied or similar, use:
 ```
-    sudo docker pull ubuntu
+sudo docker pull ubuntu
 ```
 * Wait for some seconds or minutes, depending upon your internet speed.
 * After the pull operation has been completed, use following commands to view your docker images in you local system.
 ```
-    docker images
+docker images
 ```
 * To run the image, use:
 ```
-    docker run -i -t ubuntu/ubuntu:latest
+docker run -i -t ubuntu/ubuntu:latest
 ```
 * The above command's options are described as follows:
   * -i = Interactive session with the container that is to be executed.
@@ -50,7 +50,7 @@
 ![Docker Image & Container](https://davetang.github.io/reproducible_bioinformatics/assets/docker_image.png)
 * We can also view the information about container and its state, the following commands can be used.
 ```
-    docker ps -a
+docker ps -a
 ```
   * -a = Show all containers (default shows just running)
 * Remember the information you have here. You'll be coming here a lot.

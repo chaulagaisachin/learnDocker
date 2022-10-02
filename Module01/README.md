@@ -72,8 +72,8 @@ Docker Registry: Storage and distribution system for named Docker images.
 
 Ubuntu/Debian Linux
 ```
-    sudo apt update && sudo apt upgrade
-    sudo apt install docker.io docker-compose
+sudo apt update && sudo apt upgrade
+sudo apt install docker.io docker-compose
 ```
 
 
