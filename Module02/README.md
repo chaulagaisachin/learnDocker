@@ -46,6 +46,7 @@
 * As you already have opened an interactive session by running a docker cotainer.
 * Wait a second before doing anything. Let's understand whats happenning here.
 * Docker Image is just a template for a container. Container is a executed version of the template environment itself.
+![Docker Image & Container](https://davetang.github.io/reproducible_bioinformatics/assets/docker_image.png)
 * We can also view the information about container and its state, the following commands can be used.
 ```
     docker ps -a
