@@ -121,6 +121,8 @@ docker top <container id>
 \
 ![docker-top](img/docker-top.png)
 
+NOTE: do start ssh service in you container the view similar output as above.
+
 ## Docker Lifecycles
 * Docker container can also be just created without running it.
 ```
@@ -145,7 +147,6 @@ sudo docker run -it --name myUbuntu ubuntu:latest
 ```
 \
 * Following are the Docker lifecycle stages:
-\
 ![docker-lifecycle](https://k21academy.com/wp-content/uploads/2020/10/Capture-5.png)
 
 
