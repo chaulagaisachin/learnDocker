@@ -96,11 +96,57 @@ docker ps -a
 
 
 ## Process in Containers
+* You can also run a container without attaching to it.
+```
+docker run -it -d ubuntu:latest
+```
+\
+![docker-detach](img/docker-detach.png)
+* View the information about running container
+* You can also attach yourself to docker container using:
+```
+docker attach <container id>
+```
+\
+![docker-attach](img/docker-attach.png)
 
-
+* You can also using following key combination for detaching yourself from a container:
+```
+CTRL + Q
+```
+* You can also view running processess without attaching to a docker container.
+```
+docker top <container id>
+```
+\
+![docker-top](img/docker-top.png)
 
 ## Docker Lifecycles
+* Docker container can also be just created without running it.
+```
+sudo docker container create -i -t --name myUbuntu ubuntu:latest
+```
+\
+![docker-create](img/docker-create.png)
 
+* Now the created docker container can be started using following commands:
+```
+sudo docker container start --attach -i myUbuntu
+```
+\
+![docker-create-start](img/docker-create-start.png)
+\
+* Docker status can be checked
+![docker-started](img/docker-created-started.png)
+
+* From this illustration , we can undertand that above commands are equivalent to:
+```
+sudo docker run -it --name myUbuntu ubuntu:latest
+```
+\
+* Following are the Docker lifecycle stages:
+\
+![docker-lifecycle](https://k21academy.com/wp-content/uploads/2020/10/Capture-5.png)
 
 
 ## Docker Commit
