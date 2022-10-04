@@ -4,7 +4,7 @@
 * [Working with Containers](https://github.com/chaulags/learnDocker/tree/main/Module02#working-with-containers)
 * [Process in Containers](https://github.com/chaulags/learnDocker/tree/main/Module02#process-in-containers)
 * [Docker Lifecycles](https://github.com/chaulags/learnDocker/tree/main/Module02#docker-lifecycles)
-* [Docker Commit](https://github.com/chaulags/learnDocker/tree/main/Module02#docker-commit-&-push)
+* [Docker Commit & Push](https://github.com/chaulags/learnDocker/tree/main/Module02#docker-commit--push)
 
 ## Docker Registry
 * Let's start with simple docker image.
@@ -14,7 +14,7 @@
 ```
 https://hub.docker.com/
 ```
-\
+
 ![DockerHub Image](https://static.packt-cdn.com/products/9781789137231/graphics/assets/01327d92-d3d2-4354-98bb-2a443adad38d.png)
 
 
@@ -162,6 +162,37 @@ docker commit <containerID> <newImageName:version>
 ```
 ![docker-commit](img/docker-commit.png)
 
+* Congratulation on you first commit.
+* This images of yours can also be uploaded to DockerHub, but first you need to login.
+```
+docker login
+```
+![docker-login](img/docker-login.png)
 
+* Now use following commands to push your image to DockerHub
+
+```
+docker push <imageName:version>
+```
+But,
+![but-meme](https://c.tenor.com/mv8WDfaaqZkAAAAC/but-nevermind-meme.gif)
+
+* You get error, something like this:
+![docker-push-error](img/docker-push-denied.png)
+
+* That's because you also need to specify your repository.
+* You can do that using docker tag.
+
+```
+docker tag <imageID> <repoName/imageName:versionNumber>
+```
+![docker-tag](img/docker-tag.png)
+
+* Now, Let's Push again
+![docker-push-success](img/docker-push-success.png)
+
+
+
+[* * * Go To Top * * * ](https://github.com/chaulags/learnDocker/tree/main/Module02#module-02-image-creation--management--registry)
 
 
