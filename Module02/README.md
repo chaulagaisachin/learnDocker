@@ -4,7 +4,7 @@
 * [Working with Containers](https://github.com/chaulags/learnDocker/tree/main/Module02#working-with-containers)
 * [Process in Containers](https://github.com/chaulags/learnDocker/tree/main/Module02#process-in-containers)
 * [Docker Lifecycles](https://github.com/chaulags/learnDocker/tree/main/Module02#docker-lifecycles)
-* [Docker Commit](https://github.com/chaulags/learnDocker/tree/main/Module02#docker-commit)
+* [Docker Commit](https://github.com/chaulags/learnDocker/tree/main/Module02#docker-commit-&-push)
 
 ## Docker Registry
 * Let's start with simple docker image.
@@ -145,11 +145,23 @@ sudo docker container start --attach -i myUbuntu
 ```
 sudo docker run -it --name myUbuntu ubuntu:latest
 ```
-\
+
 * Following are the Docker lifecycle stages:
 ![docker-lifecycle](https://k21academy.com/wp-content/uploads/2020/10/Capture-5.png)
 
 
-## Docker Commit
+## Docker Commit & Push
+* Docker container are just an instance of a docker images.
+* If the docker container are deleted, any changes will be deleted with it.
+* So, if a docker image is to be saved, we can use docker commit.
+* Docker commit will create your container's instance as an image.
+* So next time you start this new image, it will have everything you want.
+
+```
+docker commit <containerID> <newImageName:version>
+```
+![docker-commit](img/docker-commit.png)
+
+
 
 
