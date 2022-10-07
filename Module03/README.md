@@ -19,9 +19,6 @@
  * Try to explore more about volume using the following information:
 ```
 sudo docker volume --help
-sudo docker volume ls
-sudo docker volume inspect
-sudo docker volume rm <volName>
 ```
 ![docker-volume-help](img/docker-volume-help.png)
 
@@ -40,17 +37,26 @@ sudo docker volume create <volumeName>
 ```
 sudo docker volume inspect <volumeName> 
 ```
- #### Mount a volume to the container.
- ```
- sudo docker run -itd --name <contName> --mount source=<volName> target=<insideTheContainer> <dockerImage:versionNumber>
- ```
+![docker-volume-created-inspect](img/docker-volume-created-inspect.png)
 
-
+ 
  ## Start a container with a volume
-
+ * *--mount* will help to mount the volume create. Make sure to give proper parameters.
+ ```
+ sudo docker run -it --name <contName> --mount source=<volName>,target=<insideTheContainer> <dockerImage:versionNumber>
+ ```
+ 
+ * We can also use different way to mount a docker volume.
+```
+sudo docker run -it -v <source>:<target> <dockerImage:versionNumber>
+```
+![docker-mount](img/docker-volume-mounted.png)
 
  ## Populate data in a volume using a container
 
+![docker-write-file](img/write-newVolume.png)
+
+![view-created-file](img/view-new-file.png)
 
  ## Use a read - only volume
 
