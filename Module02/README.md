@@ -191,7 +191,7 @@ docker tag <imageID> <repoName/imageName:versionNumber>
 * Now, Let's Push again
 ![docker-push-success](img/docker-push-success.png)
 
-**This is the end of module 2**
+**This is the End of Module 2**
 
 [>> **Module 3**](https://github.com/chaulags/learnDocker/tree/main/Module03#module-03-docker-storage-and-volumes)
 
