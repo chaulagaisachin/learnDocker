@@ -25,8 +25,8 @@ sudo docker exec -it <containerID> <command | Bash>
 * Port are required to make the service available for the consumers.
 * Exposing ports will help to forward port from docker container to host network adapter.
 * Following commands can be used to forward | Expose port
- * -p <hostPort>:<containerPort> :: used to forward certain port from container to host
- * -P :: Use to forward all the port from container to host.
+  - -p hostPort>:<containerPort :: used to forward certain port from container to host
+  - -P :: Use to forward all the port from container to host.
 ```
 sudo docker run -it -p 80:80 <imageName>
 ```
@@ -73,7 +73,7 @@ sudo docker run -dit --name my-running-app -p 8080:80 httpd:latest
 ## Configure Docker to use external DNS
 * There are two ways to change the docker DNS setting.
 * By adding another parameter while running a container
-  * --dns <DNSServerAddress>
+  - --dns DNSServerAddress
 ```
 sudo docker run --dns <DNSServerAddress>
 ```
