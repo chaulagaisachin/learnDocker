@@ -30,14 +30,8 @@ sudo docker exec -it <containerID> <command | Bash>
 ## Linking containers
 * Docker supports networking for its containers via network drivers. 
 * These drivers have several network drivers.
-  * Bridge: The default network driver. If you don’t specify a driver, this is the type of network you are creating. Bridge networks are usually used when your applications run in standalone containers that need to communicate.
-  * Host: For standalone containers, remove network isolation between the container and the Docker host, and use the host’s networking directly.
-  * None: For this container, disable all networking. Usually used in conjunction with a custom network driver. none is not available for swarm services.
-  * Overlay: Overlay networks connect multiple Docker daemons together and enable swarm services to communicate with each other. You can also use overlay networks to facilitate communication between a swarm service and a standalone container, or between two standalone containers on different Docker daemons. This strategy removes the need to do OS-level routing between these containers.
-  * MacVlan: Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network.
-  * IPVlan: IPvlan networks give users total control over both IPv4 and IPv6 addressing.
 
-| Network Driver Name | Description |
+| Network Type | Description |
 |---|---|
 | Bridge | The default network driver.\  If you don’t specify a driver, this is the type of network you are creating. \ Bridge networks are usually used when your applications run in standalone containers that need to communicate |
 | Host | For standalone containers, remove network isolation between the container and the Docker host, and use the host’s networking directly. |
