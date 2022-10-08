@@ -20,6 +20,22 @@ sudo docker exec -it <containerID> <command | Bash>
 * We can also connect to varios container through network. 
 * So, first of all, we'll discuss about docker containers.
 
+## Exposing container ports
+* There are many cases where you need to expose various services.
+* Port are required to make the service available for the consumers.
+* Exposing ports will help to forward port from docker container to host network adapter.
+* Following commands can be used to forward | Expose port
+ * -p <hostPort>:<containerPort> :: used to forward certain port from container to host
+ * -P :: Use to forward all the port from container to host.
+```
+sudo docker run -it -p 80:80 <imageName>
+```
+```
+sudo docker run -dit --name my-running-app -p 8080:80 httpd:latest
+```
+* Now the service is available to the host's port.
+* Same technique can be used to forward other service such as SSH.
+
 ## Docker Networking
 * One of the reasons Docker containers and services are so powerful is that you can connect them together, or connect them to non-Docker workloads.
 * Docker networking allows you to attach a container to as many networks as you like. 
@@ -33,15 +49,12 @@ sudo docker exec -it <containerID> <command | Bash>
 
 | Network Type | Description |
 |---|---|
-| Bridge | The default network driver.\  If you don’t specify a driver, this is the type of network you are creating. \ Bridge networks are usually used when your applications run in standalone containers that need to communicate |
+| Bridge | The default network driver.  If you don’t specify a driver, this is the type of network you are creating. Bridge networks are usually used when your applications run in standalone containers that need to communicate |
 | Host | For standalone containers, remove network isolation between the container and the Docker host, and use the host’s networking directly. |
-| None | For this container, disable all networking. Usually used in conjunction with a custom network driver.\ None is not available for swarm services. |
-| Overlay | Overlay networks connect multiple Docker daemons together and enable swarm services to communicate with each other.\ You can also use overlay networks to facilitate communication between a swarm service and a standalone container, or between two standalone containers on different Docker daemons.\ This strategy removes the need to do OS-level routing between these containers. |
+| None | For this container, disable all networking. Usually used in conjunction with a custom network driver. None is not available for swarm services. |
+| Overlay | Overlay networks connect multiple Docker daemons together and enable swarm services to communicate with each other. You can also use overlay networks to facilitate communication between a swarm service and a standalone container, or between two standalone containers on different Docker daemons. This strategy removes the need to do OS-level routing between these containers. |
 | MacVlan | Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network. |
 | IPVlan | IPvlan networks give users total control over both IPv4 and IPv6 addressing. |
-
-## Exposing container ports
-
 
 ## Naming Our Containers
 
@@ -50,7 +63,6 @@ sudo docker exec -it <containerID> <command | Bash>
 
 
 ## Docker Events
-
 
 
 
