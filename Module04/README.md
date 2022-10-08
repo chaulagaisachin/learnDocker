@@ -33,6 +33,10 @@ sudo docker run -it -p 80:80 <imageName>
 ```
 sudo docker run -dit --name my-running-app -p 8080:80 httpd:latest
 ```
+![httpd-forward-port](img/httpd-forward-port.png)
+
+![httpd-works](img/httpd-working-test.png)
+
 * Now the service is available to the host's port.
 * Same technique can be used to forward other service such as SSH.
 
@@ -56,17 +60,58 @@ sudo docker run -dit --name my-running-app -p 8080:80 httpd:latest
 | MacVlan | Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network. |
 | IPVlan | IPvlan networks give users total control over both IPv4 and IPv6 addressing. |
 
+#### Inspect Network Connection
+
+#### Create Different Network
+
+#### Change Network Adapters
+
+
 ## Naming Our Containers
 
 
 ## Configure Docker to use external DNS
-
-
+* There are two ways to change the docker DNS setting.
+* By adding another parameter while running a container
+  * --dns <DNSServerAddress>
+```
+sudo docker run --dns <DNSServerAddress>
+```
+* Changing the default DNS address for the whole docker architecture.
+```
+sudo vim /etc/docker/daemon.json
+```
+* Add following:
+```
+{
+  "dns": ["8.8.8.8"]
+}
+```
+* Also, restart your docker daemon.
+```
+sudo systemctl restart docker
+```
 ## Docker Events
+* Use *docker events* to get real-time events from the server. 
+* These events differ per Docker object type.
+* Different event types have different scopes. 
+  * Container
+  * Volume
+  * Network
+  * Images
+  * Daemon
+  * Service
+  * Secrets
+  * Config
+* Go to this [link](https://docs.docker.com/engine/reference/commandline/events/) for further information.
+* You can use docker event by
+```
+sudo docker events
+```
+* Now all the activity will be reported through the output.
+* You can also use linux redirections to store all these outputs.
 
 
-
-
-[>> **Module 4**]()
+[>> **Module 5**]()
 
 [* * * Go To Top * * * ]()
