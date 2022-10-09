@@ -60,9 +60,16 @@ sudo docker run -dit --name my-running-app -p 8080:80 httpd:latest
 | MacVlan | Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network. |
 | IPVlan | IPvlan networks give users total control over both IPv4 and IPv6 addressing. |
 
+
 #### Inspect Network Connection
+```
+sudo docker inspect <Network>
+```
 
 #### Create Different Network
+```
+sudo docker network create <> 
+```
 
 #### Change Network Adapters
 
