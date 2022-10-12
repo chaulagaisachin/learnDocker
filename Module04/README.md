@@ -25,7 +25,7 @@ sudo docker exec -it <containerID> <command | Bash>
 * Port are required to make the service available for the consumers.
 * Exposing ports will help to forward port from docker container to host network adapter.
 * Following commands can be used to forward | Expose port
-  - -p hostPort>:<containerPort :: used to forward certain port from container to host
+  - -p hostPort>:containerPort:: used to forward certain port from container to host
   - -P :: Use to forward all the port from container to host.
 ```
 sudo docker run -it -p 80:80 <imageName>
@@ -61,21 +61,58 @@ sudo docker run -dit --name my-running-app -p 8080:80 httpd:latest
 | IPVlan | IPvlan networks give users total control over both IPv4 and IPv6 addressing. |
 
 
-#### Inspect Network Connection
+#### Docker Network Connection
 ```
-sudo docker inspect <Network>
+sudo docker network --help
 ```
+![docker-network](img/docker-network-help.png)
+
+```
+sudo docker network ls
+```
+![docker-network-ls](img/docker-network-ls.png)
+
+```
+sudo docker network inspect <networkID>
+```
+![docker-inspect](img/docker-network-inspect.png)
 
 #### Create Different Network
 ```
-sudo docker network create <> 
+sudo docker network create <--help> 
 ```
+![docker-create-network-help](img/docker-network-create-help.png)
+
+```
+sudo docker network create -d <driver> <networkName>
+```
+![create-network](img/create-network.png)
 
 #### Change Network Adapters
-
+```
+sudo docker run -it --network <networkID> <imageName:version>
+```
+* To see what network(s) your container is on:
+```
+sudo docker inspect <container ID> -f "{{json .NetworkSettings.Networks }}"
+```
+* To disconnect your container from the first network
+```
+docker network disconnect <network Name> <container ID>
+```
+* Then to reconnect it to another network
+```
+sudo docker network connect <network Name> <container ID>
+```
+* To check if two containers (or more) are on a network together
+```
+sudo docker network inspect <network Name> -f "{{json .Containers }}"
+```
 
 ## Naming Our Containers
-
+```
+sudo docker run -it --hostname web ubuntu:latest
+```
 
 ## Configure Docker to use external DNS
 * There are two ways to change the docker DNS setting.
@@ -117,6 +154,8 @@ sudo docker events
 ```
 * Now all the activity will be reported through the output.
 * You can also use linux redirections to store all these outputs.
+
+![docker-events](img/docker-events.png)
 
 
 [>> **Module 5**]()
