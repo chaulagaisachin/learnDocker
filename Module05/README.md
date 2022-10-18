@@ -47,12 +47,55 @@ sudo docker run --name myapache -d -p 80:80 apacheimage:1.0
 
 ## Write Dockerfile to create Image
 
+**Exercise - Do it yourself**
+* Use nginx container.
+* Upgrade & Update the container system with all the required command.
+* Copy the configuration file from the host system to container.
+* Copy the content for the website from host to container and chnage ownership of the files.
+* Change the user and create a temp log files in tmp directory for the nginx to write its logs.
 
 ## Multi-Stage Dockerfile
+* Best way to reduce the size of your docker image.
+* What is happening here?
 
+![multistage1](img/multistage-1.png)
 
+* Size of the image will approximately be like 700MB+
+* Let's obseve another solution for the same problem.
+![multistage1](img/multistage-2.png)
+* Size of the image will approximately be like 1GB+
+* Can there be any optimal way to write a dockerfile.
+![multistage1](img/multistage-3.png)
+* What's the difference in the last DockerFile.
+  
 ## Introduction to Docker Compose
+* Docker Compose is a tool that was developed to help define and share multi-container applications.
+* With Compose, we can create a YAML file to define the services and with a single command, can spin everything up or tear it all down.
 
+#### YAML crash course
+* Yet Another Markup Language
+* Key Value pairs declare like this:
+![yaml-1](img/yaml-1.png)
+* Arrays|List are declare like this:
+![yaml-2](img/yaml-2.png)
+* Maps are defined like this:
+![yaml-3](img/yaml-3.png)
+* YAML Spacing
+![yaml-4](img/yaml-4.png)
+* Arrays with directories
+![yaml-5](img/yaml-5.png)
+* Comments in YAMl
+![yaml-6](img/yaml-6.png)
 
-## Understanding docker - compose file
+## Understanding docker-compose file
+```
+services:
+  serviceName:
+    build: ./pathToDockerFile
+    volumes:
+      - ./webApp:/usr/src/app
+    ports:
+      -  hostPort:containerPort
+     
+```
 
