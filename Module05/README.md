@@ -20,8 +20,30 @@
 ## Describe Dockerfile options
 ![dockerfile-options](https://raw.githubusercontent.com/sangam14/dockercheatsheets/master/dockercheatsheet7.png)
 
-[ add , copy , volumes , expose , entrypoint , etc ]
+#### Example of a DockerFile
+```
+FROM ubuntu:latest 
+RUN apt update 
+RUN apt install –y apache2 
+RUN apt install –y apache2-utils 
+RUN apt clean 
+EXPOSE 80
+CMD [“apache2ctl”, “-D”, “FOREGROUND”]
+```
+* Copy all the codes above and paste it into a file name DockerFile.
+* To build the docker image, go to the working directory and run following commands.
 
+```
+sudo docker build -t apacheimage:1.0 .
+```
+* View the created image using.
+```
+sudo docker images
+```
+* To run the built docker image.
+```
+sudo docker run --name myapache -d -p 80:80 apacheimage:1.0
+```
 
 ## Write Dockerfile to create Image
 
@@ -29,7 +51,7 @@
 ## Multi-Stage Dockerfile
 
 
-## Docker Compose
+## Introduction to Docker Compose
 
 
 ## Understanding docker - compose file
