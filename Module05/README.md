@@ -1,10 +1,11 @@
 # Module 05: Docker Image Creation & Compose
-* [Introduction to DockerFile]()
-* [Describe Dockerfile options]()
-* [Write Dockerfile to create Image]()
-* [Multi-Stage Dockerfile]()
-* [Docker Compose]()
-* [Understanding docker-compose file]()
+* [Introduction to DockerFile](https://github.com/chaulags/learnDocker/tree/main/Module05#introduction-to-dockerfile)
+* [Describe Dockerfile options](https://github.com/chaulags/learnDocker/tree/main/Module05#describe-dockerfile-options)
+* [Write Dockerfile to create Image](https://github.com/chaulags/learnDocker/tree/main/Module05#write-dockerfile-to-create-image)
+* [Multi-Stage Dockerfile](https://github.com/chaulags/learnDocker/tree/main/Module05#multi-stage-dockerfile)
+* [Docker Compose](https://github.com/chaulags/learnDocker/tree/main/Module05#introduction-to-docker-compose)
+* [Understanding docker-compose file](https://github.com/chaulags/learnDocker/tree/main/Module05#understanding-docker-compose-file)
+
 
 ## Introduction to DockerFile
 * A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
@@ -19,6 +20,7 @@
 
 ## Describe Dockerfile options
 ![dockerfile-options](https://raw.githubusercontent.com/sangam14/dockercheatsheets/master/dockercheatsheet7.png)
+
 
 #### Example of a DockerFile
 ```
@@ -45,6 +47,7 @@ sudo docker images
 sudo docker run --name myapache -d -p 80:80 apacheimage:1.0
 ```
 
+
 ## Write Dockerfile to create Image
 
 **Exercise - Do it yourself**
@@ -54,6 +57,7 @@ sudo docker run --name myapache -d -p 80:80 apacheimage:1.0
 * Copy the content for the website from host to container and chnage ownership of the files.
 * Change the user and create a temp log files in tmp directory for the nginx to write its logs.
 
+
 ## Multi-Stage Dockerfile
 * Best way to reduce the size of your docker image.
 * What is happening here?
@@ -62,15 +66,28 @@ sudo docker run --name myapache -d -p 80:80 apacheimage:1.0
 
 * Size of the image will approximately be like 700MB+
 * Let's obseve another solution for the same problem.
+
+
 ![multistage1](img/multistage-2.png)
 * Size of the image will approximately be like 1GB+
 * Can there be any optimal way to write a dockerfile.
+
+
 ![multistage1](img/multistage-3.png)
 * What's the difference in the last DockerFile.
-  
+
+
 ## Introduction to Docker Compose
 * Docker Compose is a tool that was developed to help define and share multi-container applications.
 * With Compose, we can create a YAML file to define the services and with a single command, can spin everything up or tear it all down.
+![docker-compose-explained](https://www.simplilearn.com/ice9/free_resources_article_thumb/docker-yaml.JPG)
+
+#### Benefits of Using Docker Compose:
+* **Single host deployment** - This means you can run everything on a single piece of hardware.
+* **Quick and easy configuration** - Due to YAML scripts.
+* **High productivity** - Docker Compose reduces the time it takes to perform tasks.
+* **Security** - All the containers are isolated from each other, reducing the threat landscape.
+
 
 #### YAML crash course
 * Yet Another Markup Language
@@ -86,6 +103,7 @@ sudo docker run --name myapache -d -p 80:80 apacheimage:1.0
 ![yaml-5](img/yaml-5.png)
 * Comments in YAMl
 ![yaml-6](img/yaml-6.png)
+
 
 ## Understanding docker-compose file
 ```
