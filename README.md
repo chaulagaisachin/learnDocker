@@ -15,12 +15,11 @@ Have fun, do suggest any changes you want. :whale:
 | [Module 04](https://github.com/chaulags/learnDocker/tree/main/Module04#module-04-docker-networking) | Docker Networking :chains: |
 | [Module 05](https://github.com/chaulags/learnDocker/tree/main/Module05#module-05-docker-image-creation--compose) | Docker Image Creation & Compose :cyclone: |
 | [Module 06](https://github.com/chaulags/learnDocker/tree/main/Module06#module-06-docker-orchestration) | Docker Orchestration :chains: :cloud:   |
-| [Module 07](https://github.com/chaulags/learnDocker/tree/main/Module07#module-06-docker-security--forensics) | Docker Security & Forensics :bow_and_arrow: :shield:   |
+| [Module 07](https://github.com/chaulags/learnDocker/tree/main/Module07#module-07-docker-security--forensics) | Docker Security & Forensics :bow_and_arrow: :shield:   |
 
 ## Documentation
 
 [Docker Official Documentation](https://docs.docker.com/)
-
 
 
 ## Authors
