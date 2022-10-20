@@ -1,4 +1,4 @@
-# Module 06: Docker Orchestration using Docker Swarm
+# Module 06: Container Orchestration using Docker Swarm
 * Container Orchestration
 * Docker Swarm Introduction
 * Docker Swarm Architecture
