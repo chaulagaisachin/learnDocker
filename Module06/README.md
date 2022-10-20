@@ -45,7 +45,7 @@
 * [Swarmkit](https://github.com/moby/swarmkit) is a separate project which implements Docker’s orchestration layer and is used directly within Docker.
 
 ## Docker Swarm Architecture
-![architecture](img/Docker_Architecture.png)
+![architecture](img/DockerArchitecture.png)
 
 ## Docker Swarm and distribution strategies
 
