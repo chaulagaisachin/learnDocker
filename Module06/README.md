@@ -45,8 +45,27 @@
 * [Swarmkit](https://github.com/moby/swarmkit) is a separate project which implements Docker’s orchestration layer and is used directly within Docker.
 
 ## Docker Swarm Architecture
+
 ![architecture](img/DockerArchitecture.png)
 
+* **Services & Tasks**: 
+  * A service is the definition of the tasks to execute on the manager or worker nodes.
+  * It is the central structure of the swarm system and the primary root of user interaction with the swarm.
+  * For global services, the swarm runs one task for the service on every available node in the cluster.
+  * **Task** carries a Docker container and the commands to run inside the container. It is the atomic scheduling unit of swarm.
+  * Manager nodes assign tasks to worker nodes according to the number of replicas set in the service scale.
+
+
+* **Nodes**: A node is an instance of the Docker engine participating in the swarm.
+  * **Manager Nodes**:
+    * To maintain the cluster state.
+    * Scheduling of Services.
+    * Serving Swarm mode HTTP API endpoints.
+  * **Worker Nodes**
+    * A manager node can exist without a worker node; a worker cannot exist without a manager.
+    * Manager node assigns tasks to worker nodes.
+
+ 
 ## Docker Swarm and distribution strategies
 
 
