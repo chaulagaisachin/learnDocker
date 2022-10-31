@@ -128,10 +128,24 @@ sudo docker swarm join-token manager
 ```
 ![swarm-join-advance](img/swarm-join-advance.png)
 
-<!-- ## Installing Docker EE
-## Installing Universal Control Plane ( UCP )
-## Creating Users and Teams in UCP
-## DTR Installation
-## Create a DTR Repo
-## Users and Teams in DTR
-## Setting Permissions in DTR -->
+#### Docker Service Management
+* Service is used to deploy an application image.
+* Service will define how your task is going to be executed.
+* For example service defines the replicas of the docker container to load balance the request for all the users & customers.
+* Replicas are mostly deployed in different worker nodes so that even if any worker shuts down, another instance in another worker will respond to the request.
+* Service might be slow, but availability of the service will not stop.
+* **REDUNDANCY**
+
+![swarm-service-overview](img/swarm-service-overview.png)
+
+* To create a docker service:
+```
+sudo docker service create --replicas <number of instance> -p <port:Mapping> <image> 
+```
+* View services:
+```
+sudo docker service ls
+```
+```
+sudo docker service ps <serviceID>
+```
