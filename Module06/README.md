@@ -142,10 +142,29 @@ sudo docker swarm join-token manager
 ```
 sudo docker service create --replicas <number of instance> -p <port:Mapping> <image> 
 ```
-* View services:
+* View services in all the nodes:
 ```
 sudo docker service ls
 ```
 ```
 sudo docker service ps <serviceID>
 ```
+* Let's try and remove any replicas.
+```
+sudo docker rm -f <containerID>
+```
+* Wait for ittttt.
+* Check using following commands.
+```
+sudo docker ps
+```
+* Delete a Service
+```
+sudo docker rm <serviceID>
+```
+* Extra information of a Service
+```
+sudo docker service inspect --pretty <serviceID or serviceName>
+```
+
+ 
