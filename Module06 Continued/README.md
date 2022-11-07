@@ -62,7 +62,7 @@ sudo docker node update --availability drain <nodeID>
 ## Connecting Service to a Network
 * The overlay network driver creates a distributed network among multiple Docker daemon hosts.
 * This network sits on top of (overlays) the host-specific networks, allowing containers connected to it (including swarm service containers) to communicate securely when encryption is enabled.
-* 
+ 
 ![overlay-1](img/overlay-1.png)
 
 ![overlay-2](img/overlay-2.png)

@@ -166,5 +166,5 @@ sudo docker rm <serviceID>
 ```
 sudo docker service inspect --pretty <serviceID or serviceName>
 ```
-
+* 
  
