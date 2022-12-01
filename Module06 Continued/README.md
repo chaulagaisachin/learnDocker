@@ -78,3 +78,41 @@ sudo docker network create --driver overlay my-overlay
 ```
 sudo docker service create --replicas 3 --network my-overlay --name testing nginx:latest
 ```
+* Update the network connection to existing service
+```
+sudo docker service update --network-add mynewnetwork <service-name>
+```
+* Remove the network
+```
+sudo docker service update --network-rm myoldnetwork <service-name>
+```
+* View changes
+```
+sudo dcoker service inspect --pretty <service-name>
+```
+
+
+## Storage in Service
+* Adding volume to the service
+```
+sudo docker service create --mount src=<volume-name>,dst=<container-path> --name myservice <image:version>
+```
+* View changes
+```
+sudo dcoker service inspect --pretty <service-name>
+```
+
+## Replicated & Global
+**Replicated**: The tasks are replicated to a specified number using the ***--replicas*** flag and then each task is assigned to a node.
+```
+sudo docker service create --name <service-name> --replicas 3 <image:version>
+```
+
+**Global**: This type of service runsone task on every node.Eg -Monitoring Agents, Antivirus Scanners.
+```
+sudo docker service create --name <service-name> --mode global <image:version>
+```
+
+## Reserving Memory & CPU
+--reserve-memory
+--reserve-cpu
