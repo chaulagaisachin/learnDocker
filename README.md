@@ -9,7 +9,7 @@ But don't let that simplicity fool you - Docker can be a real pain to work with 
 
 Despite its challenges, Docker is an extremely popular and widely-used tool that has revolutionized the way we deploy and run applications. So, if you're up for a bit of a challenge and want to spend hours debugging your Dockerfiles, go ahead and give it a try!
 
-
+<div style="text-align: center">
 ## Table of Content:
 
 | Modules     | Description |
@@ -23,6 +23,7 @@ Despite its challenges, Docker is an extremely popular and widely-used tool that
 | [Module 06 Continued](https://github.com/chaulags/learnDocker/tree/main/Module06%20Continued#docker-swarm-continued) | Container Orchestration Continued :chains:  |
 | [Module 07](https://github.com/chaulags/learnDocker/tree/main/Module07#module-07-docker-security--forensics) | Docker Security & Forensics :bow_and_arrow: :shield:   |
 
+</div>
 ## Documentation
 
 [Docker Official Documentation](https://docs.docker.com/)
