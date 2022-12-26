@@ -1,8 +1,13 @@
 
 # Learn Docker  :whale:
 
-This github repository contains the learning material for Docker. If you are new to learning docker, this is it.
-Have fun, do suggest any changes you want. :whale:
+Docker is the most amazing and life-changing technology ever invented (said no one who has ever spent hours trying to debug a Dockerfile). 
+
+In reality, Docker is a tool that allows you to package applications and their dependencies into lightweight container images, which can then be run on any machine with a Docker runtime. It makes it easy to build, deploy, and run applications in a consistent and isolated environment, regardless of the underlying infrastructure.
+
+But don't let that simplicity fool you - Docker can be a real pain to work with at times, especially when you're trying to get a multi-container application up and running. Between trying to figure out the right combination of volumes, networks, and dependencies, you'll probably want to pull your hair out more than once.
+
+Despite its challenges, Docker is an extremely popular and widely-used tool that has revolutionized the way we deploy and run applications. So, if you're up for a bit of a challenge and want to spend hours debugging your Dockerfiles, go ahead and give it a try!
 
 
 ## Table of Content:
