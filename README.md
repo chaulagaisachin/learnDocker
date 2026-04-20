@@ -68,5 +68,5 @@ Open an issue or submit a pull request if you want to:
 
 ## Author
 
-- [@chaulags](https://www.github.com/chaulags)
+- [@chaulags](https://www.github.com/chaulagaisachin)
 
