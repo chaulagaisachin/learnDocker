@@ -5,6 +5,12 @@
 * [Process in Containers](https://github.com/chaulags/learnDocker/tree/main/Module02#process-in-containers)
 * [Docker Lifecycles](https://github.com/chaulags/learnDocker/tree/main/Module02#docker-lifecycles)
 * [Docker Commit & Push](https://github.com/chaulags/learnDocker/tree/main/Module02#docker-commit--push)
+* [Official Documentation Updates (2026)](https://github.com/chaulags/learnDocker/tree/main/Module02#official-documentation-updates-2026)
+* [Build and Image Creation Update](https://github.com/chaulags/learnDocker/tree/main/Module02#build-and-image-creation-update)
+* [Image Naming, Tagging, and Push Update](https://github.com/chaulags/learnDocker/tree/main/Module02#image-naming-tagging-and-push-update)
+* [Authentication Update](https://github.com/chaulags/learnDocker/tree/main/Module02#authentication-update)
+* [Container Interaction and Detach Update](https://github.com/chaulags/learnDocker/tree/main/Module02#container-interaction-and-detach-update)
+* [Data Persistence and Commit Update](https://github.com/chaulags/learnDocker/tree/main/Module02#data-persistence-and-commit-update)
 
 ## Docker Registry
 * Let's start with simple docker image.
@@ -48,7 +54,7 @@ docker run -i -t ubuntu:latest
 * The above command's options are described as follows:
   * -i = Interactive session with the container that is to be executed.
   * -t = To make sure the session is interactive, a terminal is required. Hence.
-  * ubuntu/ubuntu:latest = imageName:versionNumber 
+  * ubuntu:latest = imageName:tag
 \
 ![docker-run](img/docker-run.jpg)
 
@@ -112,7 +118,7 @@ docker attach <container id>
 
 * You can also using following key combination for detaching yourself from a container:
 ```
-CTRL + Q
+CTRL + P, then CTRL + Q
 ```
 * You can also view running processess without attaching to a docker container.
 ```
@@ -121,7 +127,7 @@ docker top <container id>
 \
 ![docker-top](img/docker-top.png)
 
-NOTE: do start ssh service in you container the view similar output as above.
+NOTE: You usually do not need SSH inside containers for this workflow. Use `docker exec -it <container id> sh` (or bash if available) to run commands in a running container.
 
 ## Docker Lifecycles
 * Docker container can also be just created without running it.
@@ -152,9 +158,11 @@ sudo docker run -it --name myUbuntu ubuntu:latest
 
 ## Docker Commit & Push
 * Docker container are just an instance of a docker images.
-* If the docker container are deleted, any changes will be deleted with it.
+* If a container is removed, changes in its writable layer are removed.
+* Data stored in volumes can persist beyond the lifecycle of a single container.
 * So, if a docker image is to be saved, we can use docker commit.
 * Docker commit will create your container's instance as an image.
+* Docker commit does not include data from mounted volumes.
 * So next time you start this new image, it will have everything you want.
 
 ```
@@ -190,6 +198,100 @@ docker tag <imageID> <repoName/imageName:versionNumber>
 
 * Now, Let's Push again
 ![docker-push-success](img/docker-push-success.png)
+
+## Official Documentation Updates (2026)
+
+This module is still useful for learning core commands. The additions below align the workflow with current official Docker docs.
+
+## Build and Image Creation Update
+
+* Docker recommends building images from a Dockerfile, where each instruction creates a layer.
+* BuildKit is the default builder for Docker Desktop and Docker Engine users.
+* Multi-stage builds use multiple `FROM` instructions so build tools can be left out of the final runtime image.
+
+Example:
+```bash
+docker build -t my-app:1.0 .
+```
+
+Official references:
+* https://docs.docker.com/get-started/docker-overview/
+* https://docs.docker.com/build/buildkit/
+* https://docs.docker.com/build/building/multi-stage/
+
+## Image Naming, Tagging, and Push Update
+
+* A full image reference format is `[HOST[:PORT]/]NAMESPACE/REPOSITORY[:TAG]`.
+* If host and namespace are omitted, Docker defaults to Docker Hub (`docker.io`) and `library` namespace for official images.
+* For Docker Hub push flow: tag first, then push.
+
+Example:
+```bash
+docker tag my-app:1.0 my-namespace/my-repo:1.0
+docker push my-namespace/my-repo:1.0
+```
+
+Official references:
+* https://docs.docker.com/reference/cli/docker/image/tag/
+* https://docs.docker.com/docker-hub/repos/manage/hub-images/push/
+
+## Authentication Update
+
+* `docker login` authenticates to a registry (public or private).
+* Docker Hub supports web-based device code login by default.
+* You can also authenticate with username and access token/password, and for non-interactive usage prefer `--password-stdin`.
+* Docker supports credential stores/helpers, which are more secure than plain base64 storage in `config.json`.
+* Registry authentication settings are stored in `~/.docker/config.json` on Linux.
+
+Example: login to a specific registry
+```bash
+docker login registry.example.com
+```
+
+Example: configure a default credential store in `~/.docker/config.json`
+```json
+{
+  "credsStore": "pass"
+}
+```
+
+Example: configure per-registry credential helpers
+```json
+{
+  "credHelpers": {
+    "myregistry.example.com": "secretservice",
+    "docker.internal.example": "pass"
+  }
+}
+```
+
+Official references:
+* https://docs.docker.com/reference/cli/docker/login/
+
+## Container Interaction and Detach Update
+
+* `docker attach` connects your terminal to the running container process streams.
+* For interactive TTY containers (`-it`), detach without stopping using `Ctrl+P` then `Ctrl+Q`.
+* `docker exec` runs a new command in an already running container, which is often the cleaner way to inspect or debug.
+
+Example:
+```bash
+docker exec -it <container id> sh
+```
+
+Official references:
+* https://docs.docker.com/reference/cli/docker/container/attach/
+* https://docs.docker.com/reference/cli/docker/container/exec/
+
+## Data Persistence and Commit Update
+
+* By default, file changes in a container's writable layer are removed when that container is removed.
+* Volumes persist data beyond the lifecycle of an individual container.
+* `docker commit` can capture container filesystem changes into a new image, but it does not include mounted volume data.
+
+Official references:
+* https://docs.docker.com/get-started/docker-concepts/running-containers/persisting-container-data/
+* https://docs.docker.com/reference/cli/docker/container/commit/
 
 **This is the End of Module 2**
 

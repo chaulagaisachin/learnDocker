@@ -8,10 +8,10 @@
 
 * Command used to deploy a Swarm Stack.
 ```
-sudo dcoker stack deploy -c <yamlFile>.yml <stackName>
+sudo docker stack deploy -c <yamlFile>.yml <stackName>
 ```
 * Use *sudo docker ps* to view extra information.
-* There are no replucas in any other worker nodes.
+* There are no replicas in any other worker nodes.
 * As default replicas is 1.
 * Using following to view the number of replicas.
 ```
@@ -20,7 +20,7 @@ sudo docker service ls
 
 
 ## Scaling
-* Scaling is the process of adding or removing compute, storage, and network services to meet the demands a workload makes for resources in order to maintain availability and performance as utilization increases.
+* Scaling is the process of adding or removing compute, storage, and network services to meet the demands a workload makes for resources, to maintain availability and performance as utilization increases.
 ![scaling](https://pimages.toolbox.com/wp-content/uploads/2021/11/29130051/Horizontal-vs.-VerticalScaling.jpg)
 * Since there are only 1 replica for a service.
 * We need to upscale it.
@@ -31,8 +31,9 @@ sudo docker service scale <serviceID>=<number of **replicas**>
 ```
 * View the replicas using.
 ```
-sudo docker service ps <stackName>
+sudo docker stack ps <stackName>
 ```
+> **Note:** `docker stack ps <stackName>` lists all tasks across all services in a stack. Use `docker service ps <serviceID>` to inspect tasks for a specific service.
 
 
 ## Rolling Updates
@@ -88,7 +89,7 @@ sudo docker service update --network-rm myoldnetwork <service-name>
 ```
 * View changes
 ```
-sudo dcoker service inspect --pretty <service-name>
+sudo docker service inspect --pretty <service-name>
 ```
 
 
@@ -99,7 +100,7 @@ sudo docker service create --mount src=<volume-name>,dst=<container-path> --name
 ```
 * View changes
 ```
-sudo dcoker service inspect --pretty <service-name>
+sudo docker service inspect --pretty <service-name>
 ```
 
 ## Replicated & Global
@@ -108,11 +109,152 @@ sudo dcoker service inspect --pretty <service-name>
 sudo docker service create --name <service-name> --replicas 3 <image:version>
 ```
 
-**Global**: This type of service runsone task on every node.Eg -Monitoring Agents, Antivirus Scanners.
+**Global**: This type of service runs one task on every node. Eg - Monitoring Agents, Antivirus Scanners.
 ```
 sudo docker service create --name <service-name> --mode global <image:version>
 ```
 
 ## Reserving Memory & CPU
---reserve-memory
---reserve-cpu
+
+> **Source:** [https://docs.docker.com/reference/cli/docker/service/create/](https://docs.docker.com/reference/cli/docker/service/create/)
+
+Docker Swarm supports two distinct resource control mechanisms per service: **reservations** and **limits**.
+
+**Reservations** (`--reserve-cpu`, `--reserve-memory`)
+A reservation guarantees that a node has at least this much resource available before a task is scheduled on it. The scheduler will not place a task on a node that cannot satisfy the reservation.
+
+**Limits** (`--limit-cpu`, `--limit-memory`)
+A limit caps the maximum resource a container may consume. If a container exceeds its memory limit, the kernel OOM killer may terminate it.
+
+| Flag | Effect |
+|---|---|
+| `--reserve-cpu` | Minimum CPU guaranteed at scheduling time |
+| `--reserve-memory` | Minimum memory guaranteed at scheduling time |
+| `--limit-cpu` | Maximum CPU the container may use |
+| `--limit-memory` | Maximum memory the container may use |
+
+**Example: create a service with reservations and limits:**
+```bash
+sudo docker service create \
+  --name myapp \
+  --replicas 3 \
+  --reserve-cpu 0.5 \
+  --reserve-memory 256m \
+  --limit-cpu 1 \
+  --limit-memory 512m \
+  nginx:alpine
+```
+
+**Update resource constraints on a running service:**
+```bash
+sudo docker service update \
+  --limit-memory 1g \
+  --reserve-memory 512m \
+  myapp
+```
+
+> CPU values are expressed as fractions of a CPU core (e.g., `0.5` = half a core). Memory values accept suffixes: `b`, `k`, `m`, `g`.
+
+---
+
+## Official Documentation Updates (2026)
+
+The sections below capture current Docker Swarm guidance as of 2026. All references point to official Docker documentation at [docs.docker.com](https://docs.docker.com).
+
+---
+
+## Rolling Update Advanced Options Update
+
+> **Sources:**
+> - [https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/](https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/)
+> - [https://docs.docker.com/reference/cli/docker/service/update/](https://docs.docker.com/reference/cli/docker/service/update/)
+
+The basic `docker service update --image` command performs a rolling update, but the default behaviour updates one replica at a time with no delay. The flags below give you precise control over how updates roll out and how failures are handled.
+
+| Flag | Purpose | Default |
+|---|---|---|
+| `--update-parallelism` | Number of tasks updated simultaneously | `1` |
+| `--update-delay` | Delay between each update batch | `0s` |
+| `--update-failure-action` | What to do if a task fails during update: `pause` or `rollback` | `pause` |
+| `--rollback-parallelism` | Number of tasks rolled back simultaneously | `1` |
+| `--rollback-delay` | Delay between rollback batches | `0s` |
+
+**Example: controlled rolling update (2 at a time, 10 s delay, auto-rollback on failure):**
+```bash
+sudo docker service update \
+  --image nginx:1.27 \
+  --update-parallelism 2 \
+  --update-delay 10s \
+  --update-failure-action rollback \
+  --rollback-parallelism 2 \
+  --rollback-delay 5s \
+  myapp
+```
+
+**Manually trigger a rollback:**
+```bash
+sudo docker service rollback myapp
+```
+
+**Embed update policy at service creation time:**
+```bash
+sudo docker service create \
+  --name myapp \
+  --replicas 5 \
+  --update-parallelism 2 \
+  --update-delay 10s \
+  --update-failure-action rollback \
+  nginx:alpine
+```
+
+---
+
+## Swarm Secrets and Configs Update
+
+> **Sources:**
+> - [https://docs.docker.com/engine/swarm/secrets/](https://docs.docker.com/engine/swarm/secrets/)
+> - [https://docs.docker.com/engine/swarm/configs/](https://docs.docker.com/engine/swarm/configs/)
+
+**Secrets** store sensitive data (passwords, API tokens, TLS keys). They are encrypted in the Raft log and mounted read-only inside the container at `/run/secrets/<secret-name>`.
+
+```bash
+# Create a secret from stdin
+echo "s3cr3tpassword" | sudo docker secret create db_password -
+
+# Create a secret from a file
+sudo docker secret create tls_cert ./server.crt
+
+# List secrets
+sudo docker secret ls
+
+# Use a secret in a service
+sudo docker service create \
+  --name mydb \
+  --secret db_password \
+  postgres:16
+
+# Remove a secret (only when no service references it)
+sudo docker secret rm db_password
+```
+
+**Configs** store non-sensitive configuration data (config files, scripts). They are mounted inside the container at a path you specify and are stored unencrypted in the Raft log.
+
+```bash
+# Create a config from a file
+sudo docker config create nginx_conf ./nginx.conf
+
+# List configs
+sudo docker config ls
+
+# Use a config in a service (mounted at /etc/nginx/nginx.conf)
+sudo docker service create \
+  --name webserver \
+  --config source=nginx_conf,target=/etc/nginx/nginx.conf \
+  nginx:alpine
+```
+
+| | Secrets | Configs |
+|---|---|---|
+| **Storage** | Encrypted in Raft | Unencrypted in Raft |
+| **Mount path** | `/run/secrets/<name>` (default) | Configurable |
+| **Use for** | Passwords, keys, tokens | Config files, scripts |

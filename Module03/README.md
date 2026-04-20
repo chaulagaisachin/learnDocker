@@ -5,13 +5,19 @@
  * [Populate data in a volume using a container](https://github.com/chaulags/learnDocker/tree/main/Module03#populate-data-in-a-volume-using-a-container)
  * [Use a read - only volume](https://github.com/chaulags/learnDocker/tree/main/Module03#use-a-read---only-volume)
  * [Understanding various Volume Plug-ins](https://github.com/chaulags/learnDocker/tree/main/Module03#understanding-various-volume-plug-ins)
+ * [Official Documentation Updates (2026)](https://github.com/chaulags/learnDocker/tree/main/Module03#official-documentation-updates-2026)
+ * [Storage Types Update](https://github.com/chaulags/learnDocker/tree/main/Module03#storage-types-update)
+ * [Named vs Anonymous Volumes](https://github.com/chaulags/learnDocker/tree/main/Module03#named-vs-anonymous-volumes)
+ * [Mount Syntax Update (--mount and -v)](https://github.com/chaulags/learnDocker/tree/main/Module03#mount-syntax-update---mount-and--v)
+ * [Backup, Restore, and Cleanup Update](https://github.com/chaulags/learnDocker/tree/main/Module03#backup-restore-and-cleanup-update)
+ * [Permissions and Ownership Update](https://github.com/chaulags/learnDocker/tree/main/Module03#permissions-and-ownership-update)
 
  ## Understanding the need for Volume service in Docker
- * Docker volumes are file systems mounted on running containers to make sure that the data generated is preserved even after the docker container is stopped.
- * Its independent to the container and its lifecycle.
- * This helps to share required files from host system to container.
- * This storage implementation is also optimal for retrieving, storing, and transferring images across various environments.
- * Can be mapped to local storage.
+ * Docker volumes are persistent data stores mounted into running containers so data can remain even after containers are removed.
+ * Volumes are independent of a specific container lifecycle.
+ * Volumes are managed by Docker, while host file sharing is typically done with bind mounts.
+ * Volumes can provide better write performance than writing into a container writable layer.
+ * Volumes are stored on the Docker host and managed with Docker volume commands.
  * Multiple container can use the same volume.
 
  ## Create and Manage volumes
@@ -41,7 +47,7 @@ sudo docker volume inspect <volumeName>
 
  
  ## Start a container with a volume
- * *--mount* will help to mount the volume create. Make sure to give proper parameters.
+ * *--mount* can be used to mount a volume with explicit key=value parameters.
  ```
  sudo docker run -it --name <contName> --mount source=<volName>,target=<insideTheContainer> <dockerImage:versionNumber>
  ```
@@ -52,7 +58,7 @@ sudo docker run -it -v <source>:<target> <dockerImage:versionNumber>
 ```
 ![docker-mount](img/docker-volume-mounted.png)
 
-* In a different scenerio, you can also directly load your host's directory in the container itself by using
+* In a different scenerio, you can also mount your host directory into a container (bind mount) by using
   ```
   sudo docker run -it -v <hostDirectoryPath>:<targetPath> <dockerImage:versionNumber>
   ```
@@ -79,8 +85,90 @@ sudo docker run -it --name <contName> --mount source=<volName>,target=<insideThe
   ![readonly](img/readonly.png)
 
  ## Understanding various Volume Plug-ins
- * Docker Engine volume plugins enable Engine deployments to be integrated with external storage systems such as Amazon EBS, and enable data volumes to persist beyond the lifetime of a single Docker host.
- * That's something related to cloud so we will deal such tech later.
+ * Docker volume drivers/plugins let Docker use external storage backends, including network and cloud-backed systems.
+ * For driver options and advanced setups, `--mount` is typically used because it supports explicit volume options.
+
+## Official Documentation Updates (2026)
+
+This module is still useful for learning core volume workflows. The additions below align the practices with official Docker documentation.
+
+## Storage Types Update
+
+Docker supports three common mount types for containers:
+* Volumes: Docker-managed persistent storage, generally preferred for persistent container data.
+* Bind mounts: Host path mounted into the container, useful for sharing source code/config with the host.
+* tmpfs mounts: In-memory temporary storage for non-persistent data (Linux only).
+
+Example tmpfs mount:
+```bash
+docker run --mount type=tmpfs,dst=/app/tmp nginx:latest
+```
+
+Official references:
+* https://docs.docker.com/storage/volumes/
+* https://docs.docker.com/storage/bind-mounts/
+* https://docs.docker.com/storage/tmpfs/
+
+## Named vs Anonymous Volumes
+
+* Named volumes have explicit names and are easier to reuse and manage.
+* Anonymous volumes get random names.
+* Both named and anonymous volumes can persist after container removal, but anonymous volumes are removed automatically when created with `--rm`.
+
+Official reference:
+* https://docs.docker.com/storage/volumes/#named-and-anonymous-volumes
+
+## Mount Syntax Update (--mount and -v)
+
+* Docker supports both `--mount` and `-v`/`--volume` for volume and bind-mount usage.
+* In general, `--mount` is preferred because it is more explicit and supports all available options.
+* `-v` is shorter and still valid for many common cases.
+
+Examples:
+```bash
+docker run --mount type=volume,src=myvol,dst=/data nginx:latest
+docker run -v myvol:/data nginx:latest
+```
+
+Official references:
+* https://docs.docker.com/storage/volumes/#syntax
+* https://docs.docker.com/storage/bind-mounts/#syntax
+* https://docs.docker.com/reference/cli/docker/container/run/
+
+## Backup, Restore, and Cleanup Update
+
+Volumes can be backed up and restored using helper containers.
+
+Backup example:
+```bash
+docker run --rm --volumes-from dbstore -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata
+```
+
+Restore example:
+```bash
+docker run --rm --volumes-from dbstore2 -v $(pwd):/backup ubuntu bash -c "cd /dbdata && tar xvf /backup/backup.tar --strip 1"
+```
+
+Cleanup example:
+```bash
+docker volume prune
+```
+
+Official references:
+* https://docs.docker.com/storage/volumes/#back-up-restore-or-migrate-data-volumes
+* https://docs.docker.com/storage/volumes/#remove-all-volumes
+
+## Permissions and Ownership Update
+
+* Bind mounts have write access to host files by default unless mounted read-only.
+* Containers using bind mounts are tightly coupled to host paths and host filesystem layout.
+* If the source path does not exist, behavior differs:
+  * With `-v`, Docker creates the host directory automatically.
+  * With `--mount`, Docker returns an error unless `bind-create-src` is used.
+
+Official references:
+* https://docs.docker.com/storage/bind-mounts/#considerations-and-constraints
+* https://docs.docker.com/storage/bind-mounts/#syntax
 
 **This is the End of Module 3**
 

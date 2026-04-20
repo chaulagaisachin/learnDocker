@@ -4,6 +4,11 @@
  * [Introduction to Container & Docker](https://github.com/chaulags/learnDocker/tree/main/Module01#introduction-to-container--docker)
  * [Understanding the Docker components](https://github.com/chaulags/learnDocker/tree/main/Module01#understanding-the-docker-components--architecture)
  * [Docker Installation](https://github.com/chaulags/learnDocker/tree/main/Module01#docker-installation)
+ * [What Has Changed (2026 Update)](https://github.com/chaulags/learnDocker/tree/main/Module01#what-has-changed-2026-update)
+ * [Installation Path Recommended in 2026](https://github.com/chaulags/learnDocker/tree/main/Module01#installation-path-recommended-in-2026)
+ * [Compose v2 Update](https://github.com/chaulags/learnDocker/tree/main/Module01#compose-v2-update)
+ * [Post-Install Best Practices](https://github.com/chaulags/learnDocker/tree/main/Module01#post-install-best-practices)
+ * [Quick Reality Check](https://github.com/chaulags/learnDocker/tree/main/Module01#quick-reality-check)
 
 
 ## Monolithic and Microservice Architecture
@@ -79,6 +84,76 @@ Wait for the Stuff to get loaded
 \
 ![Loading](https://media3.giphy.com/media/1iNIkQBAwEkUuTpikf/giphy.gif?cid=ecf05e471xtdgy62d1gagagkvlqddvnyqpnadv7mirrymn55&rid=giphy.gif&ct=g)
 \
+
+## What Has Changed (2026 Update)
+
+This module is still great for fundamentals. Here are the key updates for the current Docker ecosystem:
+* Docker Engine is now commonly used together with BuildKit and integrated Compose v2.
+* `containerd` is a core runtime component in the Docker stack and part of the wider OCI ecosystem.
+* Many teams now use Docker for local/dev workflows, then deploy to Kubernetes or managed container platforms.
+
+## Installation Path Recommended in 2026
+
+The existing `docker.io` install still works for learning, but the official Docker repository is recommended for latest stable features.
+
+Ubuntu/Debian (official repository):
+```bash
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+echo \
+	"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+	$(. /etc/os-release && echo \"$VERSION_CODENAME\") stable" | \
+	sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Quick convenience method (official script):
+```bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+```
+
+Verify installation:
+```bash
+docker --version
+docker compose version
+```
+
+## Compose v2 Update
+
+* Modern Compose command is `docker compose` (with a space).
+* Legacy `docker-compose` (with a hyphen) may still exist on older setups, but v2 plugin is the current default.
+
+Example:
+```bash
+docker compose up -d
+docker compose ps
+```
+
+## Post-Install Best Practices
+
+* Run Docker without `sudo` by adding your user to the `docker` group:
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+```
+* Quick smoke test:
+```bash
+docker run --rm hello-world
+```
+* For stronger workstation security, review Docker rootless mode:
+	https://docs.docker.com/engine/security/rootless/
+
+## Quick Reality Check
+
+* Docker Swarm is still available and useful for learning orchestration basics.
+* In most production environments today, Kubernetes is more common for large-scale orchestration.
+* Learning Docker fundamentals first (this module) is still the right starting point.
+
 **This is the End of Module 1**
 [>> **Module 2**](https://github.com/chaulags/learnDocker/tree/main/Module02#module-02-image-creation--management--registry)
 [ * * Go to Top * * ](https://github.com/chaulags/learnDocker/tree/main/Module01#module-01-docker-install--configure)
